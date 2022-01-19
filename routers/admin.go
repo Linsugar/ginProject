@@ -13,6 +13,7 @@ func AdminRouter(r *gin.Engine) {
 	Admin := r.Group("/admin")
 	{
 		Admin.GET("/", adminController.AdminController{}.AdminHome)
+		Admin.GET("/page/:name", adminController.AdminController{}.UpdatePage)
 		Admin.GET("/admin/:age", func(c *gin.Context) {
 			// var b strings.Builder
 			mysql.DoTest()

@@ -58,3 +58,9 @@ func FindData(val int) *Test3 {
 	fmt.Printf("得到的数据：%v", t1)
 	return t1
 }
+
+func UpdateData(value string) *Test3 {
+	t1 := &Test3{}
+	Db.Model(&t1).Where("name=?", value).Update("name", "小飞猪")
+	return t1
+}
