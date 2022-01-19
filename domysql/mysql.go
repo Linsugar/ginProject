@@ -52,9 +52,9 @@ func DoTest() {
 	// defer Db.Close()
 }
 
-func FindData() *Test3 {
+func FindData(val int) *Test3 {
 	t1 := &Test3{}
-	Db.First(&t1)
+	Db.Where("age=?", val).Find(&t1)
 	fmt.Printf("得到的数据：%v", t1)
 	return t1
 }
